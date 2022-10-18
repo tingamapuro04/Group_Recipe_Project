@@ -6,7 +6,7 @@
   <% @recipes.each do |recipe| %>
     <%= render recipe %>
     <p>
-      <%= link_to "Show this recipe", recipe %>
+      <%= button_to "Destroy this recipe", @recipe, method: :delete %>
     </p>
   <% end %>
 </div>
