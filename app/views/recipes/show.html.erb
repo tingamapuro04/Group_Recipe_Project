@@ -1,6 +1,71 @@
 <p style="color: green"><%= notice %></p>
 
-<%= render @recipe %>
+<h1><%= @recipe.name %></h1>
+
+<div class="recipe-first">
+    <p>
+      Preparation time: <%= @recipe.preparation_time%>
+
+      Public: <%= @recipe.public%>
+    </p>
+
+
+  </div>
+
+
+  <div class="recipe-second">
+    <p>
+      Cooking time: <%= @recipe.cooking_time %>
+    </p>
+  </div>
+
+  <div class="recipe-third">
+    <p>
+      Steps go here....
+    </p>
+  </div>
+
+  <div class="recipe-fourth">
+    <%= button_to 'Generate shopping list' %><br/>
+    <%= link_to "Add ingredient", new_food_path %>
+  </div>
+
+  <table class="table">
+    <thead>
+      <th>#</th>
+      <th>Food</th>
+      <th>Quantity</th>
+      <th>Value</th>
+      <th>Actions</th>
+    </thead>
+    <tbody>
+      <% @foods.each do |food| %>
+      <tr id="<%= dom_id food %>">
+        <th scope="row"> <%= food.id %> </th>
+        <td>
+          <%= food.name %>
+        </td>
+
+        <td>
+          <% food.name %>
+          Quantity
+        </td>
+
+        <td>
+          <%= food.price * 80 %>
+        </td>
+
+        <td>
+          <%= link_to "Modify", edit_food_path(params[:id]) %>
+          <%= button_to "Delete", @food, method: :delete %>
+        </td>
+
+      </tr>
+
+      
+    <% end %>
+    </tbody>
+  </table>
 
 <div>
   <%= link_to "Edit this recipe", edit_recipe_path(@recipe) %> |

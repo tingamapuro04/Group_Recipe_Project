@@ -1,5 +1,5 @@
 class RecipesController < ApplicationController
-  before_action :set_recipe, only: %i[ show destroy ]
+  before_action :set_recipe, only: %i[ show edit update destroy ]
 
   # GET /recipes or /recipes.json
   def index
@@ -8,6 +8,7 @@ class RecipesController < ApplicationController
 
   # GET /recipes/1 or /recipes/1.json
   def show
+    @foods = Food.all
   end
 
   # GET /recipes/new
@@ -17,6 +18,7 @@ class RecipesController < ApplicationController
 
   # GET /recipes/1/edit
   def edit
+    @food = Food.find(params[:id])
   end
 
   # POST /recipes or /recipes.json

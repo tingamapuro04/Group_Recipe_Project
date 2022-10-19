@@ -1,7 +1,6 @@
-<div id="<%= dom_id recipe %>", class="d-flex align-items-center justify-content-around border border-dark">
-  <div class="recipe_first">
+<div id="<%= dom_id recipe %>", class="d-flex align-items-center justify-content-around border border-dark recipe-item ps-3 pt-3 mb-4">
+  <div class="recipe-first">
     <p>
-      
       <%= recipe.name %>
     </p>
 
@@ -12,8 +11,14 @@
   </div>
 
 
-  <p>
-    <%= recipe.description %>
-  </p>
+  <div class="recipe-second">
+    <p>
+      <%= recipe.description %>
+    </p>
+
+    <p>
+      <%= link_to "Show", recipe %>
+    </p>
+  </div>
 
 </div>

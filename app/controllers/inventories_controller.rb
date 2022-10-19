@@ -8,6 +8,7 @@ class InventoriesController < ApplicationController
 
   # GET /inventories/1 or /inventories/1.json
   def show
+    @foods = Food.all
   end
 
   # GET /inventories/new
