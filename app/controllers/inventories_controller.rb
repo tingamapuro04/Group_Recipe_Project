@@ -65,6 +65,6 @@ class InventoriesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def inventory_params
-      params.require(:inventory).permit(:Name)
+      params.require(:inventory).permit(:Name).merge(user: current_user)
     end
 end

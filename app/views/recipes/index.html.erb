@@ -1,13 +1,10 @@
 <p style="color: green"><%= notice %></p>
 
-<h1>Recipes</h1>
 
-<div id="recipes">
+<div id="recipes", class="ms-4">
   <% @recipes.each do |recipe| %>
     <%= render recipe %>
-    <p>
-      <%= button_to "Destroy this recipe", @recipe, method: :delete %>
-    </p>
+    
   <% end %>
 </div>
 

@@ -1,32 +1,19 @@
-<div id="<%= dom_id recipe %>">
-  <p>
-    <strong>Name:</strong>
-    <%= recipe.name %>
-  </p>
+<div id="<%= dom_id recipe %>", class="d-flex align-items-center justify-content-around border border-dark">
+  <div class="recipe_first">
+    <p>
+      
+      <%= recipe.name %>
+    </p>
+
+    <p>
+      <%= button_to "Remove", @recipe, method: :delete %>
+    </p>
+
+  </div>
+
 
   <p>
-    <strong>Preparation time:</strong>
-    <%= recipe.preparation_time %>
-  </p>
-
-  <p>
-    <strong>Cooking time:</strong>
-    <%= recipe.cooking_time %>
-  </p>
-
-  <p>
-    <strong>Description:</strong>
     <%= recipe.description %>
-  </p>
-
-  <p>
-    <strong>User:</strong>
-    <%= recipe.user_id %>
-  </p>
-
-  <p>
-    <strong>Public:</strong>
-    <%= recipe.public %>
   </p>
 
 </div>
