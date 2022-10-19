@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_10_18_132247) do
+ActiveRecord::Schema[7.0].define(version: 2022_10_18_235059) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -24,7 +24,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_18_132247) do
 
   create_table "inventories", force: :cascade do |t|
     t.string "Name"
-    t.integer "user_id"
+    t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_inventories_on_user_id"
@@ -32,8 +32,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_18_132247) do
 
   create_table "inventory_foods", force: :cascade do |t|
     t.integer "Quantity"
-    t.integer "inventory_id"
-    t.integer "food_id"
+    t.bigint "inventory_id", null: false
+    t.bigint "food_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["food_id"], name: "index_inventory_foods_on_food_id"
@@ -42,8 +42,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_18_132247) do
 
   create_table "recipe_foods", force: :cascade do |t|
     t.integer "quantity"
-    t.integer "recipe_id"
-    t.integer "food_id"
+    t.bigint "recipe_id", null: false
+    t.bigint "food_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["food_id"], name: "index_recipe_foods_on_food_id"
@@ -52,13 +52,13 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_18_132247) do
 
   create_table "recipes", force: :cascade do |t|
     t.string "name"
-    t.text "preparation_time"
-    t.text "cooking_time"
-    t.text "description"
-    t.integer "user_id"
+    t.string "preparation_time"
+    t.string "cooking_time"
+    t.string "description"
+    t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.boolean "public", default: false
+    t.boolean "public"
     t.index ["user_id"], name: "index_recipes_on_user_id"
   end
 
@@ -80,4 +80,10 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_18_132247) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "inventories", "users"
+  add_foreign_key "inventory_foods", "foods"
+  add_foreign_key "inventory_foods", "inventories"
+  add_foreign_key "recipe_foods", "foods"
+  add_foreign_key "recipe_foods", "recipes"
+  add_foreign_key "recipes", "users"
 end

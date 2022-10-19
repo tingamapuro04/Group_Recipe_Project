@@ -8,6 +8,6 @@ class CreateRecipes < ActiveRecord::Migration[7.0]
       t.references :user, null: false, index: true, foreign_key: { to_table: :users }
 
       t.timestamps
-    add_index :recipes, :user_id
+    end
   end
 end
