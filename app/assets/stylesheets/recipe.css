@@ -1,0 +1,15 @@
+.recipe-item {
+  width: 60vw;
+  margin: 7px auto;
+}
+
+.recipe-first {
+  width: 15%;
+  /* display: flex;
+  flex-direction: column;
+  justify-content: center; */
+}
+
+.recipe-second {
+  width: 83%;
+}
