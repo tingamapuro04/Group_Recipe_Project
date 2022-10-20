@@ -29,6 +29,10 @@
             <%= link_to 'Sign out', destroy_user_session_path, method: :DELETE, class: 'nav-link' %>
           </li>
 
+          <li>
+            <%= current_user.email %>
+          </li>
+
         <% else %>
 
           <li>
