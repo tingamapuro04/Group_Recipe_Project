@@ -1,0 +1,29 @@
+<% @public.each do |item| %>
+  <div id="<%= dom_id item %>", class="d-flex align-items-center justify-content-around border border-dark recipe-item ps-3 pt-3 mb-4">
+    <div class="recipe-first">
+      <p>
+        <%= item.name %>
+      </p>
+
+      <p>
+      <% owner = User.find_by(id: item.user_id)  %>
+        By:<%= owner.Name %>
+      </p>
+
+    </div>
+
+
+    <div class="recipe-second">
+      <p>
+        Total food items:
+      </p>
+
+      <p>
+        Total price
+      </p>
+    </div>
+
+  </div>
+      
+<% end %>
+
