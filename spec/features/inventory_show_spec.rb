@@ -8,8 +8,8 @@ RSpec.describe 'Inventory show page', type: :feature do
       password: '1234567'
     )
 
-   @inventory1 = Inventory.create(Name: 'Inventory 1', user_id: @user1.id)
-   @inventory2 = Inventory.create(Name: 'Inventory 2', user_id: @user1.id)
+    @inventory1 = Inventory.create(Name: 'Inventory 1', user_id: @user1.id)
+    @inventory2 = Inventory.create(Name: 'Inventory 2', user_id: @user1.id)
   end
 
   describe 'Inventory show page' do

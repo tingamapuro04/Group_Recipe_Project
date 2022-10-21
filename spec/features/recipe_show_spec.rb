@@ -8,7 +8,7 @@ RSpec.describe 'Inventory show page', type: :feature do
       password: '1234567'
     )
 
-      @recipe = Recipe.create(
+    @recipe = Recipe.create(
       name: 'JollofRice',
       preparation_time: '1 hour',
       cooking_time: '3 hours',
@@ -19,7 +19,7 @@ RSpec.describe 'Inventory show page', type: :feature do
   end
 
   describe 'Recipe Show page' do
-     it 'should have names of the recipe' do
+    it 'should have names of the recipe' do
       visit recipes_path
       expect(page).to have_content('JollofRice')
       expect(page).to have_content('JollofRice')

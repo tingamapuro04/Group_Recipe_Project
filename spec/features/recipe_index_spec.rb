@@ -8,17 +8,17 @@ RSpec.describe 'Inventory show page', type: :feature do
       password: '1234567'
     )
 
-     @recipe1 = Recipe.create(name: 'Tacos', user_id: @user1.id, description: 'Tacos are delicious')
+    @recipe1 = Recipe.create(name: 'Tacos', user_id: @user1.id, description: 'Tacos are delicious')
     @recipe2 = Recipe.create(name: 'Pizza', user_id: @user1.id, description: 'Pizza is delicious')
   end
 
-   describe 'Recipe Index page' do
+  describe 'Recipe Index page' do
     it 'displays the name of the recipe' do
       visit recipes_path
       expect(page).to have_content('Tacos')
     end
 
-       it 'displays the name of the recipe' do
+    it 'displays the name of the recipe' do
       visit recipes_path
       expect(page).to have_content('Pizza')
     end
