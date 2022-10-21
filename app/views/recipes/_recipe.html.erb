@@ -1,0 +1,24 @@
+<div id="<%= dom_id recipe %>", class="d-flex align-items-center justify-content-around border border-dark recipe-item ps-3 pt-3 mb-4">
+  <div class="recipe-first">
+    <p>
+      <%= recipe.name %>
+    </p>
+
+    <p>
+      <%= button_to "Remove", @recipe, method: :delete %>
+    </p>
+
+  </div>
+
+
+  <div class="recipe-second">
+    <p>
+      <%= recipe.description %>
+    </p>
+
+    <p>
+      <%= link_to "Show", recipe %>
+    </p>
+  </div>
+
+</div>

@@ -1,0 +1,46 @@
+<p style="color: green"><%= notice %></p>
+
+<h1> <%= @inventory.Name%> </h1>
+
+  <table class="table">
+    <thead>
+      <th>#</th>
+      <th>Food</th>
+      <th>Quantity</th>
+      <th>Value</th>
+      <th>Actions</th>
+    </thead>
+    <tbody>
+      <% @foods.each do |food| %>
+      <tr id="<%= dom_id food %>">
+        <th scope="row"> <%= food.id %> </th>
+        <td>
+          <%= food.name %>
+        </td>
+
+        <td>
+          <% food.name %>
+          Quantity
+        </td>
+
+        <td>
+          <%= food.price * 80 %>
+        </td>
+
+        <td>
+          <%= button_to "Remove", @food, method: :delete %>
+        </td>
+
+      </tr>
+
+      
+    <% end %>
+    </tbody>
+  </table>
+
+<div>
+  <%= link_to "Edit this inventory", edit_inventory_path(@inventory) %> |
+  <%= link_to "Back to inventories", inventories_path %>
+
+  
+</div>

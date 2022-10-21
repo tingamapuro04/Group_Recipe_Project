@@ -1,0 +1,17 @@
+<div id="<%= dom_id inventory %>", class="d-flex align-items-center justify-content-around border border-dark recipe-item ps-3 pt-3 mb-4">
+  <div class="recipe-first">
+    <p>
+      <%= inventory.Name %>
+    </p>
+
+    <p>
+      <%= button_to "Delete", inventory, method: :delete %>
+    </p>
+  </div>
+
+  <div class="recipe-second">
+    Description
+    <%= link_to "Show", inventory %>
+  </div>
+
+</div>

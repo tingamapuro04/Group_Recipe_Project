@@ -1,0 +1,22 @@
+<div id="<%= dom_id recipe %>", class="d-flex align-items-center justify-content-around border border-dark recipe-item ps-3 pt-3 mb-4">
+  <div class="recipe-first">
+    <p>
+      <%= item.name %>
+    </p>
+
+    <p>
+      By:<%= User.find_by([:user_id]).name%>
+    </p>
+
+  </div>
+
+
+  <div class="recipe-second">
+    
+    <p>Total food items:<%= recipe.recipe_foods.length %></p>
+    
+
+    <p>Total price:$<%= recipe_cost(recipe) %></p>
+  </div>
+
+</div>
