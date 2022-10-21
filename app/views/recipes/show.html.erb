@@ -1,20 +1,17 @@
 <h1><%= @recipe.name %></h1>
 
 <div class="recipe-first">
-    <p>
-      Preparation time: <%= @recipe.preparation_time%>
+   
+    <h6>Preparation time: <%= @recipe.preparation_time %> hours </h6>
 
-      Public: <%= @recipe.public%>
-    </p>
-
-
-  </div>
-
+    <% if @recipe.public %>
+      <span class="badge bg-primary">Public</span>
+    <% else %>
+      <span class="badge bg-secondary">Private</span>
+    <% end %>
 
   <div class="recipe-second">
-    <p>
-      Cooking time: <%= @recipe.cooking_time %>
-    </p>
+    <h6>Cooking time: <%= @recipe.cooking_time %> hours</h6>
   </div>
 
   <div class="recipe-third">
@@ -24,8 +21,8 @@
   </div>
 
   <div class="recipe-fourth">
-    <%= button_to 'Generate shopping list' %><br/>
-    <%= link_to "Add ingredient", new_food_path %>
+    <p class="btn btn-info"><%= link_to 'Generate shopping list', recipes_path %></p><br/>
+    <p class="btn btn-info"><%= link_to "Add ingredient", new_food_path %></p>
   </div>
 
   <table class="table">
@@ -34,7 +31,9 @@
       <th>Food</th>
       <th>Quantity</th>
       <th>Value</th>
-      <th>Actions</th>
+      <% if @recipe.user == current_user %>
+        <th>Action</th>
+      <% end %>
     </thead>
     <tbody>
       <% @foods.each do |food| %>
@@ -45,8 +44,8 @@
         </td>
 
         <td>
-          <% food.name %>
-          Quantity
+          <%= food.name %>
+          
         </td>
 
         <td>
