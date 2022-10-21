@@ -12,13 +12,11 @@
 
 
   <div class="recipe-second">
-    <p>
-      Total food items:
-    </p>
+    
+    <p>Total food items:<%= recipe.recipe_foods.length %></p>
+    
 
-    <p>
-      Total price
-    </p>
+    <p>Total price:$<%= recipe_cost(recipe) %></p>
   </div>
 
 </div>

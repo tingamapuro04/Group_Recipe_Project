@@ -1,32 +1,13 @@
-<%= form_with(model: recipe_food) do |form| %>
-  <% if recipe_food.errors.any? %>
-    <div style="color: red">
-      <h2><%= pluralize(recipe_food.errors.count, "error") %> prohibited this recipe_food from being saved:</h2>
 
-      <ul>
-        <% recipe_food.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div>
-    <%= form.label :quantity, style: "display: block" %>
-    <%= form.number_field :quantity %>
-  </div>
-
-  <div>
-    <%= form.label :recipe_id, style: "display: block" %>
-    <%= form.number_field :recipe_id %>
-  </div>
-
-  <div>
-    <%= form.label :food_id, style: "display: block" %>
-    <%= form.number_field :food_id %>
-  </div>
-
-  <div>
-    <%= form.submit %>
-  </div>
-<% end %>
+<div class="container-fluid w-50 d-flex flex-column align-items-center">
+    <h1 class="mb-5">Add food</h1>
+    <%= form_with model: @recipe_food, url: "/recipe_foods/#{@recipe.id}/create", method: :post do |form| %>
+  
+      <p>Choose food from this list (press ctrl+click to select multiple)</p>
+      
+      <%= form.select :food_list, Food.order(:name).pluck(:name, :id), {}, {:multiple => true, required:true, class: "form-select mb-3"} %>
+      <%= form.label :quantity, 'Quantity:', class: "form-label" %>
+      <%= form.number_field :quantity, class: "form-control form-control-lg mb-4" %>
+      <%= form.submit 'Add food', class: "btn btn-primary" %>
+    <% end %>
+</div>
